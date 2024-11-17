@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-th-replace="~{basic :: head}"></head>
+
+<body>
+<div data-th-replace="~{navbar :: navbar}"></div>
+
+<main class="bg-sky-700 p-16">
+    <div class="mx-auto max-w-screen-xl px-4 pb-6 sm:px-6 lg:px-8 lg:pb-16">
+        <div class=" rounded-lg bg-white shadow">
+            <div class="lg:grid lg:grid-cols-12 lg:divide-x">
+                <aside class="py-6 lg:col-span-3">
+                    <nav class="space-y-1">
+                        <a data-th-href="@{'/user/dashboard'}" class="border-transparent text-gray-900 hover:bg-gray-50 hover:text-gray-900 group border-l-4 px-3 py-2 flex items-center text-sm font-medium">
+                            <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#666666"><path d="M520-600v-240h320v240H520ZM120-440v-400h320v400H120Zm400 320v-400h320v400H520Zm-400 0v-240h320v240H120Zm80-400h160v-240H200v240Zm400 320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0 240ZM360-280Z"/></svg>
+                            <span class="truncate">Dashboard</span>
+                        </a>
+                        <a data-th-href="@{'/user/profile'}" class="border-transparent text-gray-900 hover:bg-gray-50 hover:text-gray-900 group border-l-4 px-3 py-2 flex items-center text-sm font-medium">
+                            <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span class="truncate">Profile</span>
+                        </a>
+                        <a data-th-href="@{'/user/contacts/add'}" class="border-transparent text-gray-900 hover:bg-gray-50 hover:text-gray-900 group border-l-4 px-3 py-2 flex items-center text-sm font-medium">
+                            <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#666666"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+                            <span class="truncate">Add Contact</span>
+                        </a>
+                        <a data-th-href="@{'/user/contacts'}" class="bg-teal-50 border-teal-500 text-teal-700 hover:bg-teal-50 hover:text-teal-700 group border-l-4 px-3 py-2 flex items-center text-sm font-medium">
+                            <svg class="text-teal-500 group-hover:text-teal-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#666666">
+                                <path d="M160-40v-80h640v80H160Zm0-800v-80h640v80H160Zm320 400q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm70-80q45-56 109-88t141-32q77 0 141 32t109 88h70v-480H160v480h70Zm118 0h264q-29-20-62.5-30T480-280q-36 0-69.5 10T348-240Zm132-280q-17 0-28.5-11.5T440-560q0-17 11.5-28.5T480-600q17 0 28.5 11.5T520-560q0 17-11.5 28.5T480-520Zm0 40Z"/>
+                            </svg>
+                            <span class="truncate">Contacts</span>
+                        </a>
+                        <a href="#" class="border-transparent text-gray-900 hover:bg-gray-50 hover:text-gray-900 group border-l-4 px-3 py-2 flex items-center text-sm font-medium">
+                            <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path>
+                            </svg>
+                            <span class="truncate">Notifications</span>
+                        </a>
+                    </nav>
+                </aside>
+
+                <div class="divide-y divide-gray-200 lg:col-span-9">
+                    <!-- edit contact section -->
+                    <div class="w-full max-w-2xl max-h-full">
+                            <!-- Modal content -->
+                            <form class="mx-auto m-8 max-w-xl sm:mt-20 bg-white rounded-lg shadow dark:bg-gray-700" data-th-action="@{'/user/contacts/edit/'+ ${contactId}}" method="post" data-th-object="${contactSave}" novalidate>
+                                <!-- Modal header -->
+                                <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+                                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                        Edit user
+                                    </h3>
+                                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="editUserModal">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <div data-th-if="${errorMessage}" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                                    <strong class="font-bold">Error!</strong>
+                                    <span data-th-text="${errorMessage}"></span>
+                                </div>
+                                <div data-th-if="${successMessage}" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                                    <strong class="font-bold">Error!</strong>
+                                    <span data-th-text="${successMessage}"></span>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="p-6 space-y-6">
+                                        <div class="sm:col-span-2">
+                                            <label for="name" class="block text-sm font-semibold leading-6 text-gray-900">Name</label>
+                                            <div class="mt-2.5">
+                                                <input required="" type="text" data-th-field="*{cName}" id="name" autocomplete="organization" placeholder="Your Name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                                            </div>
+                                            <p class="text-red-500" data-th-if="${#fields.hasErrors('cName')}" data-th-errors="*{cName}"> Invalid Name </p>
+                                        </div>
+                                        <div class="sm:col-span-2">
+                                            <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Email</label>
+                                            <div class="mt-2.5">
+                                                <input required="" type="email" data-th-field="*{cEmail}" id="email" placeholder="Your Email Address" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                                            </div>
+                                            <p class="text-red-500" data-th-if="${#fields.hasErrors('cEmail')}" data-th-errors="*{cEmail}"> Invalid Name </p>
+                                        </div>
+                                        <div class="sm:col-span-2">
+                                            <label for="phone" class="block text-sm font-semibold leading-6 text-gray-900">Phone number</label>
+                                            <div class="mt-2.5">
+                                                <input required="" type="tel" data-th-field="*{cPhone}" id="phone" placeholder="Your Phone Number" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                                            </div>
+                                            <p class="text-red-500" data-th-if="${#fields.hasErrors('cPhone')}" data-th-errors="*{cPhone}"> Invalid Name </p>
+                                        </div>
+                                        <div class="sm:col-span-2">
+                                            <label for="description" class="block text-sm font-semibold leading-6 text-gray-900">Description</label>
+                                            <div class="mt-2.5">
+                                                <textarea name="message" data-th-field="*{cDesc}" id="description" rows="4" placeholder="Share something..." class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"></textarea>
+                                            </div>
+                                            <p class="text-red-500" data-th-if="${#fields.hasErrors('cDesc')}" data-th-errors="*{cDesc}"> Invalid Name </p>
+                                        </div>
+                                        <div>
+                                            <label for="socialLink1" class="block text-sm font-semibold leading-6 text-gray-900">Social Links 1</label>
+                                            <div class="mt-2.5">
+                                                <input required="" type="text" data-th-field="*{cUrl1}" id="socialLink1" placeholder="Url" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                                            </div>
+                                            <p class="text-red-500" data-th-if="${#fields.hasErrors('cUrl1')}" data-th-errors="*{cUrl1}"> Invalid Name </p>
+                                        </div>
+                                        <!--TO-DO:its not fetching link 2-->
+                                        <div>
+                                            <label for="socialLink2" class="block text-sm font-semibold leading-6 text-gray-900">Social Link 2</label>
+                                            <div class="mt-2.5">
+                                                <input required="" type="text" data-th-field="*{cUrl2}" id="socialLink2" placeholder="Url" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                                            </div>
+                                            <p class="text-red-500" data-th-if="${#fields.hasErrors('cUrl2')}" data-th-errors="*{cUrl2}"> Invalid Name </p>
+                                        </div>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="flex items-center p-6 space-x-3 rtl:space-x-reverse border-t border-gray-200 rounded-b dark:border-gray-600">
+                                    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save all</button>
+                                </div>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+
+</html>

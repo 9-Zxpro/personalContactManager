@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-th-replace="~{basic :: head}"></head>
+
+<body>
+<div data-th-replace="~{navbar :: navbar}"></div>
+
+<main class="bg-sky-700 p-4">
+    <div class="mx-auto max-w-screen-xl px-4 pb-6 sm:px-6 lg:px-8 lg:pb-16">
+        <div class=" rounded-lg bg-white shadow">
+            <!-- edit contact section -->
+            <div class="w-full max-h-full">
+                <!-- Modal content -->
+                <form class="mx-auto m-8 max-w-xl sm:mt-20 bg-white rounded-lg shadow dark:bg-gray-700" data-th-action="@{'/user/editing-profile/'+ ${userId}}" method="post" data-th-object="${profileSave}" novalidate>
+                    <!-- Modal header -->
+                    <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                            Edit Profile
+                        </h3>
+                        <a data-th-href="@{'/user/profile'}" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="editUserModal">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </a>
+                    </div>
+                    <div data-th-if="${errorMessage}" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                        <strong class="font-bold">Error!</strong>
+                        <span data-th-text="${errorMessage}"></span>
+                    </div>
+                    <div data-th-if="${successMessage}" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                        <strong class="font-bold">Error!</strong>
+                        <span data-th-text="${successMessage}"></span>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="p-6 space-y-6">
+                        <div class="sm:col-span-2">
+                            <label for="username" class="block text-sm font-semibold leading-6 text-gray-900">Username</label>
+                            <div class="mt-2.5">
+                                <input required="" type="text" data-th-field="*{username}" id="username" autocomplete="organization" placeholder="Your Name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                            </div>
+                            <p class="text-red-500" data-th-if="${#fields.hasErrors('username')}" data-th-errors="*{cName}"> Invalid Name </p>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="fname" class="block text-sm font-semibold leading-6 text-gray-900">First Name</label>
+                            <div class="mt-2.5">
+                                <input required="" type="text" data-th-field="*{firstname}" id="fname" autocomplete="organization" placeholder="Your Name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                            </div>
+                            <p class="text-red-500" data-th-if="${#fields.hasErrors('firstname')}" data-th-errors="*{firstname}"> Invalid Name </p>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="lname" class="block text-sm font-semibold leading-6 text-gray-900">Last Name</label>
+                            <div class="mt-2.5">
+                                <input required="" type="text" data-th-field="*{lastname}" id="lname" autocomplete="organization" placeholder="Your Name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                            </div>
+                            <p class="text-red-500" data-th-if="${#fields.hasErrors('lastname')}" data-th-errors="*{lastname}"> Invalid Name </p>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Email</label>
+                            <div class="mt-2.5">
+                                <input required="" type="email" data-th-field="*{email}" id="email" placeholder="Your Email Address" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                            </div>
+                            <p class="text-red-500" data-th-if="${#fields.hasErrors('email')}" data-th-errors="*{email}"> Invalid Name </p>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="phone" class="block text-sm font-semibold leading-6 text-gray-900">Phone number</label>
+                            <div class="mt-2.5">
+                                <input required="" type="tel" data-th-field="*{phone}" id="phone" placeholder="Your Phone Number" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
+                            </div>
+                            <p class="text-red-500" data-th-if="${#fields.hasErrors('phone')}" data-th-errors="*{phone}"> Invalid Name </p>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="bio" class="block text-sm font-semibold leading-6 text-gray-900">Bio</label>
+                            <div class="mt-2.5">
+                                <textarea name="message" data-th-field="*{about}" id="bio" rows="4" placeholder="Share something..." class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"></textarea>
+                            </div>
+                            <p class="text-red-500" data-th-if="${#fields.hasErrors('about')}" data-th-errors="*{about}"> Invalid Name </p>
+                        </div>
+
+                        <div data-th-if="${profileImg}" class="relative inline-block">
+                            <!-- Profile Placeholder -->
+                            <div class="flex items-center justify-center w-20 h-20 text-black w-32 h-32 rounded-full border border-gray-300">
+                                <img class="h-full w-full rounded-full" data-th-src="@{${profilePic}}" alt="">
+                            </div>
+
+                            <!-- Hidden File Input -->
+                            <input type="file" id="fileInputWithPic" class="hidden" accept="image/*" onchange="handleFileChange(event)">
+
+                            <!-- Edit Icon Button -->
+                            <label for="fileInputWithPic" class="absolute bottom-0 right-0 w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#666666"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
+                            </label>
+                        </div>
+                        <div data-th-if="${profileImg==null}" class="relative inline-block">
+                            <!-- Profile Placeholder -->
+                            <div class="profile-pic w-32 h-32 rounded-full flex items-center justify-center"
+                                 data-th-style="'background-color: ' + ${profilePicColor}">
+                                <span data-th-text="${profilePicLetter}" class="text-white text-5xl font-bold"></span>
+                            </div>
+
+                            <!-- Hidden File Input -->
+                            <input type="file" id="fileInput" class="hidden" accept="image/*" onchange="handleFileChange(event)">
+
+                            <!-- Edit Icon Button -->
+                            <label for="fileInput" class="absolute bottom-0 right-0 w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#666666"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="flex items-center p-6 space-x-3 rtl:space-x-reverse border-t border-gray-200 rounded-b dark:border-gray-600">
+                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save all</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+
+</html>

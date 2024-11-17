@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head data-th-replace="~{basic :: head}"></head>
+
+<body>
+<div data-th-replace="~{navbar :: navbar}"></div>
+
+<main class="bg-sky-700 p-16">
+    <div class="mx-auto max-w-screen-xl px-4 pb-6 sm:px-6 lg:px-8 lg:pb-16">
+        <div class=" rounded-lg bg-white shadow">
+            <div class="lg:grid lg:grid-cols-12 lg:divide-x">
+                <aside class="py-6 lg:col-span-3">
+                    <nav class="space-y-1">
+                        <a data-th-href="@{'/user/dashboard'}" class="border-transparent text-gray-900 hover:bg-gray-50 hover:text-gray-900 group border-l-4 px-3 py-2 flex items-center text-sm font-medium">
+                            <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#666666"><path d="M520-600v-240h320v240H520ZM120-440v-400h320v400H120Zm400 320v-400h320v400H520Zm-400 0v-240h320v240H120Zm80-400h160v-240H200v240Zm400 320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0 240ZM360-280Z"/></svg>
+                            <span class="truncate">Dashboard</span>
+                        </a>
+                        <a data-th-href="@{'/user/profile'}" class="bg-teal-50 border-teal-500 text-teal-700 hover:bg-teal-50 hover:text-teal-700 group border-l-4 px-3 py-2 flex items-center text-sm font-medium">
+                            <svg class="text-teal-500 group-hover:text-teal-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span class="truncate">Profile</span>
+                        </a>
+                        <a data-th-href="@{'/user/contacts/add'}" class="border-transparent text-gray-900 hover:bg-gray-50 hover:text-gray-900 group border-l-4 px-3 py-2 flex items-center text-sm font-medium">
+                            <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#666666"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+                            <span class="truncate">Add Contact</span>
+                        </a>
+                        <a data-th-href="@{'/user/contacts'}" class="border-transparent text-gray-900 hover:bg-gray-50 hover:text-gray-900 group border-l-4 px-3 py-2 flex items-center text-sm font-medium">
+                            <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#666666"><path d="M160-40v-80h640v80H160Zm0-800v-80h640v80H160Zm320 400q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm70-80q45-56 109-88t141-32q77 0 141 32t109 88h70v-480H160v480h70Zm118 0h264q-29-20-62.5-30T480-280q-36 0-69.5 10T348-240Zm132-280q-17 0-28.5-11.5T440-560q0-17 11.5-28.5T480-600q17 0 28.5 11.5T520-560q0 17-11.5 28.5T480-520Zm0 40Z"/></svg>
+                            <span class="truncate">Contacts</span>
+                        </a>
+                        <a data-th-href="@{'/user/contacts/notific'}" class="border-transparent text-gray-900 hover:bg-gray-50 hover:text-gray-900 group border-l-4 px-3 py-2 flex items-center text-sm font-medium">
+                            <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path>
+                            </svg>
+                            <span class="truncate">Notifications</span>
+                        </a>
+                    </nav>
+                </aside>
+
+                <div class="divide-y divide-gray-200 lg:col-span-9">
+                    <!-- Profile section -->
+                    <div class="py-6 px-4 sm:p-6 lg:pb-8">
+                        <div class="mt-6 flex flex-col lg:flex-row items-center justify-between">
+                        <div>
+                            <h2 data-th-text="${inUser.username}" class="text-lg font-medium leading-6 text-gray-900"></h2>
+                        </div>
+                         <a data-th-href="@{'/user/view/'+ ${inUser.userId}}" type="button" class="px-5 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            <svg class="w-5 h-5 text-white dark:text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
+                            </svg>
+                            Edit
+                        </a>
+                        </div>
+                        <div class="mt-6 flex flex-col lg:flex-row">
+                            <div class="flex-grow space-y-6">
+                                <!-- Name Section -->
+                                <div class="grid grid-cols-12 gap-6 mt-6">
+                                    <div class="col-span-12 sm:col-span-6">
+                                        <label class="block text-sm font-medium text-gray-700">First name</label>
+                                        <span data-th-text="${inUser.firstname}" class="mt-1 block text-gray-900"></span>
+                                    </div>
+
+                                    <div class="col-span-12 sm:col-span-6">
+                                        <label class="block text-sm font-medium text-gray-700">Last name</label>
+                                        <span data-th-text="${inUser.lastname}" class="mt-1 block text-gray-900"></span>
+                                    </div>
+                                </div>
+                                <!--phone Number-->
+                                <div data-th-if="${inUser.phoneNumber!=null}">
+                                    <label class="block text-sm font-medium text-gray-700">Phone Number</label>
+                                    <span data-th-text="${inUser.phoneNumber}" class="mt-1 block text-gray-900"></span>
+                                </div>
+                                <!-- About Section -->
+                                <div data-th-if="${inUser.about!=null}">
+                                    <label class="block text-sm font-medium text-gray-700">About</label>
+                                    <p data-th-text="${inUser.about}" class="mt-1 text-gray-900"></p>
+                                </div>
+                            </div>
+
+                            <!-- Profile Photo -->
+                            <div class="mt-6 flex-grow lg:mt-0 lg:ml-6 lg:flex-shrink-0 lg:flex-grow-0">
+                                <div class="mt-1 lg:hidden flex items-center">
+                                    <div data-th-if="${profileImg}" class="inline-block h-12 w-12 flex-shrink-0 overflow-hidden rounded-full" aria-hidden="true">
+                                        <img  class="h-full w-full rounded-full" data-th-src="@{${profilePic}}" alt="">
+                                    </div>
+                                    <div data-th-if="${profilePicLetter}" class="profile-pic w-10 h-10 rounded-full flex items-center justify-center"
+                                         data-th-style="'background-color: ' + ${profilePicColor}">
+                                        <span data-th-text="${profilePicLetter}" class="text-white font-bold"></span>
+                                    </div>
+                                </div>
+
+                                <div data-th-if="${profileImg}" class="hidden lg:block relative overflow-hidden w-32 h-32 rounded-full border border-gray-300">
+                                    <img class="h-full w-full rounded-full" data-th-src="@{${profilePic}}" alt="">
+                                </div>
+                                <div data-th-if="${profilePicLetter}" class="profile-pic w-32 h-32 rounded-full flex items-center justify-center"
+                                     data-th-style="'background-color: ' + ${profilePicColor}">
+                                    <span data-th-text="${profilePicLetter}" class="text-white text-5xl font-bold"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+
+</html>
